@@ -1,8 +1,6 @@
 package io.reflectoring.diningreview.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class DiningReview {
@@ -15,6 +13,8 @@ public class DiningReview {
     private Integer peanutAllergyScore;
     private Integer eggAllergyScore;
     private Integer dairyAllergyScore;
+    @Enumerated(EnumType.STRING)
+    private ReviewStatus reviewStatus;
 
     public DiningReview() {
     }
