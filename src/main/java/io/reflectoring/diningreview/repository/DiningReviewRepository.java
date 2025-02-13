@@ -1,8 +1,11 @@
 package io.reflectoring.diningreview.repository;
 
 import io.reflectoring.diningreview.model.DiningReview;
+import io.reflectoring.diningreview.model.Restaurant;
 import org.springframework.data.repository.CrudRepository;
 
-public interface DiningReviewRepository extends CrudRepository<DiningReview, Long> {
+import java.util.List;
 
+public interface DiningReviewRepository extends CrudRepository<DiningReview, Long> {
+    List<DiningReview> findALlReviewsByRestaurant(Restaurant restaurant);
 }

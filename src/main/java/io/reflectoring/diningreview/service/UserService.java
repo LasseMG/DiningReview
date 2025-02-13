@@ -1,4 +1,4 @@
-package io.reflectoring.diningreview.Service;
+package io.reflectoring.diningreview.service;
 
 import io.reflectoring.diningreview.model.User;
 import io.reflectoring.diningreview.repository.UserRepository;
