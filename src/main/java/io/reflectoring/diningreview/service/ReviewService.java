@@ -27,7 +27,7 @@ public class ReviewService {
         return diningReviewRepository.findAll();
     }
 
-    public void approveReview(DiningReview review) {
+    public List<DiningReview> approveReview(DiningReview review) {
 
     }
 
