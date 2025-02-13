@@ -18,7 +18,6 @@ public class RestaurantController {
     @Autowired
     public RestaurantController(RestaurantService restaurantService, RestaurantRepository restaurantRepository) {
         this.restaurantService = restaurantService;
-
     }
 
     @PostMapping
