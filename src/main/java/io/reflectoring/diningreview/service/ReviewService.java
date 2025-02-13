@@ -1,4 +1,4 @@
-package io.reflectoring.diningreview.Service;
+package io.reflectoring.diningreview.service;
 
 import io.reflectoring.diningreview.model.DiningReview;
 import io.reflectoring.diningreview.repository.DiningReviewRepository;
@@ -23,15 +23,15 @@ public class ReviewService {
         return diningReviewRepository.save(review);
     }
 
-    public List<DiningReview> getReviews() {
-        return null;
+    public Iterable<DiningReview> getReviews() {
+        return diningReviewRepository.findAll();
     }
 
-    public void approveReview(DiningReview review) {
+    public List<DiningReview> approveReview(DiningReview review) {
 
     }
 
     public List<DiningReview> getReviewsByRestaurant(Restaurant restaurant) {
-        return null;
+        return diningReviewRepository.findALlReviewsByRestaurant(restaurant);
     }
 }

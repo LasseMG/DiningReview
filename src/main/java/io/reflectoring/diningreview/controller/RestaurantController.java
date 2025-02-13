@@ -1,6 +1,6 @@
 package io.reflectoring.diningreview.controller;
 
-import io.reflectoring.diningreview.Service.RestaurantService;
+import io.reflectoring.diningreview.service.RestaurantService;
 import io.reflectoring.diningreview.model.Restaurant;
 import io.reflectoring.diningreview.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;

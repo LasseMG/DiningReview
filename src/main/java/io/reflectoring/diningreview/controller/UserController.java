@@ -1,6 +1,6 @@
 package io.reflectoring.diningreview.controller;
 
-import io.reflectoring.diningreview.Service.UserService;
+import io.reflectoring.diningreview.service.UserService;
 import io.reflectoring.diningreview.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
