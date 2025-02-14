@@ -27,7 +27,7 @@ public class RestaurantService {
     }
 
     public List<Restaurant> findRestaurantsByZipcode(String zipcode) {
-        return restaurantRepository.findAllByZipcode(zipcode);
+        return restaurantRepository.findAllByZipcodeOrderByName(zipcode);
     }
 
     public Optional<Restaurant> findRestaurantById(Long id) {

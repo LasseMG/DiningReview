@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
     Restaurant findById(long id);
-    List<Restaurant> findAllByZipcode(String zipcode);
+    List<Restaurant> findAllByZipcodeOrderByName(String zipcode);
 }

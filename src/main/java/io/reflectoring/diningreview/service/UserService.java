@@ -30,4 +30,6 @@ public class UserService {
     public boolean verifyUserByName(String name) {
         return userRepository.findByUsername(name) != null;
     }
+
+
 }

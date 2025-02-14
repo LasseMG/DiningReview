@@ -28,7 +28,7 @@ public class ReviewService {
     }
 
     public List<DiningReview> approveReview(DiningReview review) {
-
+        return null;
     }
 
     public List<DiningReview> getReviewsByRestaurant(Restaurant restaurant) {

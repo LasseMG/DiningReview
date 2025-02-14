@@ -25,6 +25,4 @@ public class DiningReviewController {
         return null;
         //Iterable<DiningReview> reviewService.getReviews();
     }
-
-
 }
