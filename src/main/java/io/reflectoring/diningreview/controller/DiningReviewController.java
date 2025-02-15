@@ -3,6 +3,7 @@ package io.reflectoring.diningreview.controller;
 import io.reflectoring.diningreview.model.DiningReview;
 import io.reflectoring.diningreview.service.DiningReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,15 +20,15 @@ public class DiningReviewController {
     }
 
     @PostMapping
-    public DiningReview submitReview(@RequestBody DiningReview review) {
-        diningReviewService.submitReview(review);
-        return review;
+    public ResponseEntity<DiningReview> submitReview(@RequestBody DiningReview review) {
+        DiningReview createdReview = diningReviewService.submitReview(review);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdReview);
     }
 
     @PutMapping("/approve")
-    public DiningReview approveReview(@RequestBody DiningReview review) {
-        diningReviewService.approveReview(review);
-        return review;
+    public ResponseEntity<DiningReview> approveReview(@RequestBody DiningReview review) {
+        DiningReview reviewToApprove = diningReviewService.approveReview(review);
+        return ResponseEntity.status(HttpStatus.OK).body(reviewToApprove);
     }
 
     @PutMapping("/reject")
@@ -37,14 +38,15 @@ public class DiningReviewController {
     }
 
     @GetMapping
-    public List<DiningReview> getPendingReviews() {
-        return diningReviewService.getPendingReviews();
+    public ResponseEntity<List<DiningReview>> getPendingReviews() {
+        List<DiningReview> pendingReviews = diningReviewService.getPendingReviews();
+        return ResponseEntity.ok(pendingReviews);
     }
 
-    @DeleteMapping
-    public DiningReview deleteReview(@RequestBody DiningReview review) {
-        diningReviewService.deleteReview(review);
-        return review;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<DiningReview> deleteReview(@PathVariable Long id) {
+        DiningReview reviewToDelete = diningReviewService.deleteReviewById(id);
+        return ResponseEntity.ok(reviewToDelete);
     }
 
     @GetMapping("/{id}")

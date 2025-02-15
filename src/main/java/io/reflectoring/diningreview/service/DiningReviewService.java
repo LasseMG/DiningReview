@@ -53,8 +53,8 @@ public class DiningReviewService {
         return diningReviewRepository.findAllByReviewStatus(ReviewStatus.PENDING);
     }
 
-    public DiningReview deleteReview(DiningReview review) {
-        Optional<DiningReview> reviewToDelete = diningReviewRepository.findById(review.getId());
+    public DiningReview deleteReviewById(Long id) {
+        Optional<DiningReview> reviewToDelete = diningReviewRepository.findById(id);
         if (reviewToDelete.isPresent()) {
             diningReviewRepository.delete(reviewToDelete.get());
             return reviewToDelete.get();
