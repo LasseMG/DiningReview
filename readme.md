@@ -4,7 +4,7 @@ Kort sagt:
 
 Projekt fra CodeCademy om en platform, der hjælper folk med fødevareallergier med at finde restauranter
 
-
+Mål for projektet
 * Bygge en simpel backend med Spring Boot og H2 database, der håndterer brugere, restauranter og anmeldelser.
 * Brugere skal kunne oprette en profil og angive, om de har allergier (peanuts, æg og mælk).
 * Restauranter får anmeldelser, hvor brugerne kan give en allergivenlig score baseret på deres oplevelsen eller menuen generelt. 
@@ -37,9 +37,12 @@ Entities og hvad metoderne bør returnere
 
 DTO (Data Transfer Object)
 * I stedet for at returnere "hele" objekter, fx User med al data, kan der vælges enkelte data, som vi ønsker at vise brugeren. 
+<<<<<<< HEAD
 
 Todos
 -
 * ResponseEntity som retur i controllere 
 * Resterende HTTP metoder i alle controllere
 * Andre funktionaliteter? 
+=======
+
