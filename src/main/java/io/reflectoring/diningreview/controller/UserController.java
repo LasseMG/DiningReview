@@ -1,7 +1,8 @@
 package io.reflectoring.diningreview.controller;
 
-import io.reflectoring.diningreview.service.UserService;
+import io.reflectoring.diningreview.dto.UserDTO;
 import io.reflectoring.diningreview.model.User;
+import io.reflectoring.diningreview.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping
-    public User getUserByName(@RequestParam String name) {
+    public UserDTO getUserByName(@RequestParam String name) {
         return userService.getUserByName(name);
     }
 

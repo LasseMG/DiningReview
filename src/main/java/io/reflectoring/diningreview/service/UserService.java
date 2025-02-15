@@ -1,9 +1,14 @@
 package io.reflectoring.diningreview.service;
 
+import io.reflectoring.diningreview.dto.UserAllergyDTO;
+import io.reflectoring.diningreview.dto.UserDTO;
+import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.User;
 import io.reflectoring.diningreview.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -23,13 +28,22 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUserByName(String name) {
-        return userRepository.findByUsername(name);
+    public UserDTO getUserByName(String name) {
+        Optional<User> user = userRepository.findByUsername(name);
+        return user.map(UserDTO::new).orElseThrow(() -> new EntityNotFoundException(name));
     }
 
     public boolean verifyUserByName(String name) {
-        return userRepository.findByUsername(name) != null;
+        return userRepository.findByUsername(name).isPresent();
     }
 
+    public UserAllergyDTO getUserAllergyByName(String name) {
+        Optional<User> user = userRepository.findByUsername(name);
+        if (user.isPresent()) {
+            return new UserAllergyDTO(user.get());
+        } else {
+            throw new EntityNotFoundException(name);
+        }
+    }
 
 }

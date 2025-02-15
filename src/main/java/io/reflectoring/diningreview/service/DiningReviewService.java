@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ReviewService {
+public class DiningReviewService {
 
     private DiningReviewRepository diningReviewRepository;
 
     @Autowired
-    public ReviewService(DiningReviewRepository diningReviewRepository) {
+    public DiningReviewService(DiningReviewRepository diningReviewRepository) {
         this.diningReviewRepository = diningReviewRepository;
     }
 
@@ -28,7 +28,7 @@ public class ReviewService {
     }
 
     public List<DiningReview> approveReview(DiningReview review) {
-        return null;
+
     }
 
     public List<DiningReview> getReviewsByRestaurant(Restaurant restaurant) {

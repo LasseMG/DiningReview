@@ -1,23 +1,20 @@
 package io.reflectoring.diningreview.controller;
 
 import io.reflectoring.diningreview.model.DiningReview;
-import io.reflectoring.diningreview.repository.DiningReviewRepository;
-import io.reflectoring.diningreview.service.ReviewService;
+import io.reflectoring.diningreview.service.DiningReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/diningreviews")
 public class DiningReviewController {
-    private final ReviewService reviewService;
+    private final DiningReviewService diningReviewService;
 
     @Autowired
-    public DiningReviewController(ReviewService reviewService) {
-        this.reviewService = reviewService;
+    public DiningReviewController(DiningReviewService reviewService) {
+        this.diningReviewService = reviewService;
     }
 
     @GetMapping
