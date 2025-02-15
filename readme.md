@@ -1,7 +1,7 @@
 Om projektet
 * Kort sagt: Projekt fra CodeCademy om en platform, der hjælper folk med fødevareallergier med at finde restauranter
 
-
+Mål for projektet
 * Bygge en simpel backend med Spring Boot og H2 database, der håndterer brugere, restauranter og anmeldelser.
 * Brugere skal kunne oprette en profil og angive, om de har allergier (peanuts, æg og mælk).
 * Restauranter får anmeldelser, hvor brugerne kan give en allergivenlig score baseret på deres oplevelsen eller menuen generelt. 
