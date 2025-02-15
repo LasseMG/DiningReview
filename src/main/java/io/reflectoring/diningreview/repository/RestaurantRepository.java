@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
-    Restaurant findById(long id);
     List<Restaurant> findAllByZipcodeOrderByName(String zipcode);
+    List<Restaurant> findAllByOrderByName();
 }

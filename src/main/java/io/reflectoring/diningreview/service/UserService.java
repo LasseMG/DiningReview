@@ -28,7 +28,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public UserDTO getUserByName(String name) {
+    public UserDTO getUserDTOByName(String name) {
         Optional<User> user = userRepository.findByUsername(name);
         return user.map(UserDTO::new).orElseThrow(() -> new EntityNotFoundException(name));
     }
@@ -46,4 +46,7 @@ public class UserService {
         }
     }
 
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
+    }
 }

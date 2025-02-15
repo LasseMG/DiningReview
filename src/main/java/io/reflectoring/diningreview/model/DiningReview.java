@@ -14,7 +14,7 @@ public class DiningReview {
     private Integer eggAllergyScore;
     private Integer dairyAllergyScore;
     @Enumerated(EnumType.STRING)
-    private ReviewStatus reviewStatus;
+    private ReviewStatus reviewStatus = ReviewStatus.PENDING;
 
     public DiningReview() {
     }
@@ -25,5 +25,71 @@ public class DiningReview {
         this.peanutAllergyScore = peanutAllergyScore;
         this.eggAllergyScore = eggAllergyScore;
         this.dairyAllergyScore = dairyAllergyScore;
+        this.reviewStatus = ReviewStatus.PENDING;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSubmittedBy() {
+        return submittedBy;
+    }
+
+    public void setSubmittedBy(String submittedBy) {
+        this.submittedBy = submittedBy;
+    }
+
+    public Long getRestaurantReviewedId() {
+        return restaurantReviewedId;
+    }
+
+    public void setRestaurantReviewedId(Long restaurantReviewedId) {
+        this.restaurantReviewedId = restaurantReviewedId;
+    }
+
+    public String getOptionalReviewComment() {
+        return optionalReviewComment;
+    }
+
+    public void setOptionalReviewComment(String optionalReviewComment) {
+        this.optionalReviewComment = optionalReviewComment;
+    }
+
+    public Integer getPeanutAllergyScore() {
+        return peanutAllergyScore;
+    }
+
+    public void setPeanutAllergyScore(Integer peanutAllergyScore) {
+        this.peanutAllergyScore = peanutAllergyScore;
+    }
+
+    public Integer getEggAllergyScore() {
+        return eggAllergyScore;
+    }
+
+    public void setEggAllergyScore(Integer eggAllergyScore) {
+        this.eggAllergyScore = eggAllergyScore;
+    }
+
+    public Integer getDairyAllergyScore() {
+        return dairyAllergyScore;
+    }
+
+    public void setDairyAllergyScore(Integer dairyAllergyScore) {
+        this.dairyAllergyScore = dairyAllergyScore;
+    }
+
+    public ReviewStatus getReviewStatus() {
+        return reviewStatus;
+    }
+
+    public void setReviewStatus(ReviewStatus reviewStatus) {
+        this.reviewStatus = reviewStatus;
     }
 }
+

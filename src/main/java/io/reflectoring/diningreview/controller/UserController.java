@@ -1,5 +1,6 @@
 package io.reflectoring.diningreview.controller;
 
+import io.reflectoring.diningreview.dto.UserAllergyDTO;
 import io.reflectoring.diningreview.dto.UserDTO;
 import io.reflectoring.diningreview.model.User;
 import io.reflectoring.diningreview.service.UserService;
@@ -30,8 +31,8 @@ public class UserController {
     }
 
     @GetMapping
-    public UserDTO getUserByName(@RequestParam String name) {
-        return userService.getUserByName(name);
+    public UserDTO getUserDTOByName(@RequestParam String name) {
+        return userService.getUserDTOByName(name);
     }
 
     @GetMapping("/validate")
@@ -43,4 +44,17 @@ public class UserController {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping
+    public UserAllergyDTO getUserAllergy(@RequestParam String name) {
+        return userService.getUserAllergyByName(name);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+
+    //TODO ResponseEntity for alle metoder
 }
