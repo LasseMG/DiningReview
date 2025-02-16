@@ -17,6 +17,17 @@ public class User {
     private boolean eggAllergic;
     private boolean dairyAllergic;
 
+    public User(Long id, String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.peanutAllergic = peanutAllergic;
+        this.eggAllergic = eggAllergic;
+        this.dairyAllergic = dairyAllergic;
+    }
+
     /**
      * No-argument constructor: ofte nødvendig for JPA for at skabe objekter gennem reflection
      */
@@ -28,29 +39,15 @@ public class User {
      * @param user objekt som skal kopieres.
      */
     public User(User user) {
+        this.id = user.getId();
         this.name = user.getName();
         this.city = user.getCity();
-        this.city = user.getCity(); 
         this.state = user.getState();
         this.zipcode = user.getZipcode();
         this.peanutAllergic = user.isPeanutAllergic();
         this.eggAllergic = user.isEggAllergic();
         this.dairyAllergic = user.isDairyAllergic();
 
-    }
-
-    /**
-     * Standard constructor.
-     */
-    public User(Long id, String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
-        this.id = id;
-        this.name = name;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-        this.peanutAllergic = peanutAllergic;
-        this.eggAllergic = eggAllergic;
-        this.dairyAllergic = dairyAllergic;
     }
 
     public Long getId() {

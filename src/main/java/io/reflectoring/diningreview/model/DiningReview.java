@@ -16,6 +16,16 @@ public class DiningReview {
     @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus = ReviewStatus.PENDING;
 
+    public DiningReview(String submittedBy, Long restaurantReviewedId, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, ReviewStatus reviewStatus) {
+        this.submittedBy = submittedBy;
+        this.restaurantReviewedId = restaurantReviewedId;
+        this.optionalReviewComment = optionalReviewComment;
+        this.peanutAllergyScore = peanutAllergyScore;
+        this.eggAllergyScore = eggAllergyScore;
+        this.dairyAllergyScore = dairyAllergyScore;
+        this.reviewStatus = reviewStatus;
+    }
+
     public DiningReview() {
     }
     public DiningReview(User user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore) {

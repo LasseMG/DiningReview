@@ -41,8 +41,9 @@ DTO (Data Transfer Object)
 
 Todos
 -
-* ResponseEntity som retur i controllere 
-* Resterende HTTP metoder i alle controllere
+* cURL til test af API endpoints, eller Postman 
+* Unit test af service klasser 
+* Data validation i objekt/entity klasser 
 * Andre funktionaliteter? 
 =======
 

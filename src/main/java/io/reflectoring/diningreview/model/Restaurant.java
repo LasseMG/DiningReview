@@ -23,6 +23,24 @@ public class Restaurant {
     private double dairyAllergyScore;
     private double overallScore;
 
+    public Restaurant(Long id, String name, String address, String zipcode, String state, String country, String phoneNumber, PriceRange priceRange, int capacity, int numberOfReviews, String cuisineType, double peanutAllergyScore, double eggAllergyScore, double dairyAllergyScore, double overallScore) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.zipcode = zipcode;
+        this.state = state;
+        this.country = country;
+        this.phoneNumber = phoneNumber;
+        this.priceRange = priceRange;
+        this.capacity = capacity;
+        this.numberOfReviews = numberOfReviews;
+        this.cuisineType = cuisineType;
+        this.peanutAllergyScore = peanutAllergyScore;
+        this.eggAllergyScore = eggAllergyScore;
+        this.dairyAllergyScore = dairyAllergyScore;
+        this.overallScore = overallScore;
+    }
+
     public Restaurant() {
     }
 
