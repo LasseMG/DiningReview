@@ -8,4 +8,6 @@ import java.util.List;
 public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
     List<Restaurant> findAllByZipcodeOrderByName(String zipcode);
     List<Restaurant> findAllByOrderByName();
+    List<Restaurant> findAllByOrderByOverallScore();
+    List<Restaurant> findAllByOrderByRating();
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -34,14 +35,26 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public List<Restaurant> getAllRestaurants() {
-        return restaurantService.findAllRestaurantsOrderByName();
+    public ResponseEntity<List<Restaurant>> getAllRestaurants() {
+        List<Restaurant> restaurants = restaurantService.findAllRestaurantsOrderByName();
+        return ResponseEntity.ok(restaurants);
     }
 
     @GetMapping
-    public List<Restaurant> getAllRestaurantsByZipcode(String zipcode) {
-        return restaurantService.findRestaurantsByZipcode(zipcode);
+    public ResponseEntity<List<Restaurant>> getAllRestaurantsByZipcode(String zipcode) {
+        List<Restaurant> restaurants = restaurantService.findRestaurantsByZipcode(zipcode);
+        return ResponseEntity.ok(restaurants);
     }
 
-    //TODO ResponseEntity for alle metoder, PUT, POST
+    @PutMapping
+    public ResponseEntity<Restaurant> updateRestaurant(@RequestBody Restaurant restaurant) {
+        restaurantService.updateRestaurant(restaurant);
+        return ResponseEntity.ok(restaurant);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRestaurantById(@PathVariable Long id) {
+        restaurantService.deleteRestaurantById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

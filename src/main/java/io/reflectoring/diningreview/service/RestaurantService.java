@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -36,5 +37,17 @@ public class RestaurantService {
 
     public List<Restaurant> findAllRestaurantsOrderByName() {
         return restaurantRepository.findAllByOrderByName();
+    }
+
+    public void updateRestaurant(Restaurant restaurant) {
+        restaurantRepository.save(restaurant);
+    }
+
+    public void deleteRestaurantById(Long id) {
+        Optional<Restaurant> restaurantToDelete = restaurantRepository.findById(id);
+        if (restaurantToDelete.isEmpty()) {
+            throw new EntityNotFoundException("Restaurant not found with id " + id);
+        }
+        restaurantRepository.deleteById(id);
     }
 }

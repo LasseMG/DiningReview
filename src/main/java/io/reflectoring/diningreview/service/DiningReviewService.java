@@ -29,16 +29,16 @@ public class DiningReviewService {
         return diningReviewRepository.findAll();
     }
 
-    public DiningReview approveReview(DiningReview review) {
+    public void approveReview(DiningReview review) {
         DiningReview reviewToApprove = diningReviewRepository.findById(review.getId()).orElseThrow(() -> new EntityNotFoundException("Review not found"));
         reviewToApprove.setReviewStatus(ReviewStatus.ACCEPTED);
-        return diningReviewRepository.save(reviewToApprove);
+        diningReviewRepository.save(reviewToApprove);
     }
 
-    public DiningReview rejectReview(DiningReview review) {
+    public void rejectReview(DiningReview review) {
         DiningReview reviewToReject = diningReviewRepository.findById(review.getId()).orElseThrow(() -> new EntityNotFoundException("Review not found"));
         reviewToReject.setReviewStatus(ReviewStatus.REJECTED);
-        return diningReviewRepository.save(reviewToReject);
+        diningReviewRepository.save(reviewToReject);
     }
 
     public List<DiningReview> getReviewsByRestaurant(Restaurant restaurant) {
@@ -53,11 +53,10 @@ public class DiningReviewService {
         return diningReviewRepository.findAllByReviewStatus(ReviewStatus.PENDING);
     }
 
-    public DiningReview deleteReviewById(Long id) {
+    public void deleteReviewById(Long id) {
         Optional<DiningReview> reviewToDelete = diningReviewRepository.findById(id);
         if (reviewToDelete.isPresent()) {
             diningReviewRepository.delete(reviewToDelete.get());
-            return reviewToDelete.get();
         } else {
             throw new EntityNotFoundException("Review not found");
         }

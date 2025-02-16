@@ -6,6 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Hvis en metode fejler i at returnere et objekt, fx findUserByName, vil det returnere en HTTP status 404: Not Found
+ * Hvis den er fundet, ses det i controller-metoderne, at der returneres en HTTP ok-status.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)

@@ -10,5 +10,6 @@ import java.util.List;
 public interface DiningReviewRepository extends CrudRepository<DiningReview, Long> {
     List<DiningReview> findAllByRestaurant(Restaurant restaurant);
     List<DiningReview> findAllByReviewStatus(ReviewStatus reviewStatus);
+    List<DiningReview>  findAllByUserId(Long id);
 
 }

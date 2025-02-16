@@ -25,16 +25,18 @@ public class DiningReviewController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdReview);
     }
 
-    @PutMapping("/approve")
-    public ResponseEntity<DiningReview> approveReview(@RequestBody DiningReview review) {
-        DiningReview reviewToApprove = diningReviewService.approveReview(review);
+    @PutMapping("/approve/{id}")
+    public ResponseEntity<DiningReview> approveReview(@PathVariable Long id) {
+        DiningReview reviewToApprove = diningReviewService.getReviewById(id);
+        diningReviewService.approveReview(reviewToApprove);
         return ResponseEntity.status(HttpStatus.OK).body(reviewToApprove);
     }
 
-    @PutMapping("/reject")
-    public DiningReview rejectReview(@RequestBody DiningReview review) {
-        diningReviewService.rejectReview(review);
-        return review;
+    @PutMapping("/reject/{id}")
+    public ResponseEntity<DiningReview> rejectReview(@PathVariable Long id) {
+        DiningReview reviewToReject = diningReviewService.getReviewById(id);
+        diningReviewService.rejectReview(reviewToReject);
+        return ResponseEntity.status(HttpStatus.OK).body(reviewToReject);
     }
 
     @GetMapping
@@ -44,9 +46,9 @@ public class DiningReviewController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<DiningReview> deleteReview(@PathVariable Long id) {
-        DiningReview reviewToDelete = diningReviewService.deleteReviewById(id);
-        return ResponseEntity.ok(reviewToDelete);
+    public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
+        diningReviewService.deleteReviewById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
@@ -54,6 +56,4 @@ public class DiningReviewController {
         DiningReview diningReview = diningReviewService.getReviewById(id);
         return ResponseEntity.ok(diningReview);
     }
-
-    //TODO ResponseEntity for alle metoder
 }

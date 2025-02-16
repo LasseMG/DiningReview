@@ -2,6 +2,7 @@ package io.reflectoring.diningreview.controller;
 
 import io.reflectoring.diningreview.dto.UserAllergyDTO;
 import io.reflectoring.diningreview.dto.UserDTO;
+import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.User;
 import io.reflectoring.diningreview.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,23 +32,25 @@ public class UserController {
     }
 
     @GetMapping
-    public UserDTO getUserDTOByName(@RequestParam String name) {
-        return userService.getUserDTOByName(name);
+    public ResponseEntity<UserDTO> getUserDTOByName(@RequestParam String name) {
+        UserDTO userDTO = userService.getUserDTOByName(name);
+        return ResponseEntity.ok(userDTO);
     }
 
     @GetMapping("/validate")
     public ResponseEntity<String> verifyUserByName(@RequestParam String name) {
         boolean exists = userService.verifyUserByName(name);
         if (exists) {
-            return new ResponseEntity<>("User already exists", HttpStatus.OK);
+            return ResponseEntity.ok("User exists");
         } else {
-            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            throw new EntityNotFoundException("User not found:  " + name);
         }
     }
 
     @GetMapping
-    public UserAllergyDTO getUserAllergy(@RequestParam String name) {
-        return userService.getUserAllergyByName(name);
+    public ResponseEntity<UserAllergyDTO> getUserAllergy(@RequestParam String name) {
+        UserAllergyDTO userAllergiesDTO = userService.getUserAllergyByName(name);
+        return ResponseEntity.ok(userAllergiesDTO);
     }
 
     @GetMapping("/{id}")
@@ -56,5 +59,9 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    //TODO ResponseEntity for alle metoder
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUserById(@RequestParam Long id) {
+        userService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
