@@ -1,5 +1,4 @@
 package io.reflectoring.diningreview.service;
-
 import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.DiningReview;
 import io.reflectoring.diningreview.model.Restaurant;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class DiningReviewService {

@@ -23,8 +23,7 @@ public class Restaurant {
     private double dairyAllergyScore;
     private double overallScore;
 
-    public Restaurant(Long id, String name, String address, String zipcode, String state, String country, String phoneNumber, PriceRange priceRange, int capacity, int numberOfReviews, String cuisineType, double peanutAllergyScore, double eggAllergyScore, double dairyAllergyScore, double overallScore) {
-        this.id = id;
+    public Restaurant(String name, String address, String zipcode, String state, String country, String phoneNumber, PriceRange priceRange, int capacity, int numberOfReviews, String cuisineType, double peanutAllergyScore, double eggAllergyScore, double dairyAllergyScore, double overallScore) {
         this.name = name;
         this.address = address;
         this.zipcode = zipcode;

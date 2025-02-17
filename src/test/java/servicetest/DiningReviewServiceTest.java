@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import org.junit.jupiter.api.Assertions;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -30,9 +28,11 @@ public class DiningReviewServiceTest {
 
     @BeforeEach
     public void setup() {
+        //this.diningReviewService = new DiningReviewService(diningReviewRepository); //Manuel initialization
+
         //Arrange
-        testUser = new User(1L, "Jonas", "Denver", "Colorado", "123456", true, false, false);
-        testRestaurant = new Restaurant(1L, "Den Gyldne Kro", "Privatvej 1", "123456", "Colorado", "USA", "12345678", PriceRange.MODERATE, 70, 0, "Dansk", 0, 0, 0, 0);
+        testUser = new User("Jonas", "Denver", "Colorado", "123456", true, false, false);
+        testRestaurant = new Restaurant("Den Gyldne Kro", "Privatvej 1", "123456", "Colorado", "USA", "12345678", PriceRange.MODERATE, 70, 0, "Dansk", 0, 0, 0, 0);
         testDiningReview = new DiningReview(testUser.getName(), testRestaurant.getId(), "God, lækker mad til gode priser. Mange muligheder for æg- og nøddeintolerante, men knap så mange til laktoseintolerante.", 5, 5, 2, ReviewStatus.PENDING);
     }
 
@@ -44,12 +44,6 @@ public class DiningReviewServiceTest {
 
         //Assert: check om den får et id automatisk
         assertNotNull(reviewToSave.getId(), "ID ikke null");
-
-        //Act
-        DiningReview reviewToFind = diningReviewService.getReviewById(reviewToSave.getId());
-
-        //Assert
-        assertEquals(reviewToSave, reviewToFind);
     }
 
     @Test

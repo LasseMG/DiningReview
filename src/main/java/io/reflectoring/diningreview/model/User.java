@@ -17,8 +17,7 @@ public class User {
     private boolean eggAllergic;
     private boolean dairyAllergic;
 
-    public User(Long id, String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
-        this.id = id;
+    public User(String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
         this.name = name;
         this.city = city;
         this.state = state;
