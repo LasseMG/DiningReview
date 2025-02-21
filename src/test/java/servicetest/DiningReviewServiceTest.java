@@ -33,7 +33,7 @@ public class DiningReviewServiceTest {
         //Arrange
         testUser = new EndUser("Jonas", "Denver", "Colorado", "123456", true, false, false);
         testRestaurant = new Restaurant("Den Gyldne Kro", "Privatvej 1", "123456", "Colorado", "USA", "12345678", PriceRange.MODERATE, 70, 0, "Dansk", 0, 0, 0, 0);
-        testDiningReview = new DiningReview(testUser.getUsername(), testRestaurant.getId(), "God, lækker mad til gode priser. Mange muligheder for æg- og nøddeintolerante, men knap så mange til laktoseintolerante.", 5, 5, 2, ReviewStatus.PENDING, testUser.getId());
+        testDiningReview = new DiningReview(testUser.getUsername(), testRestaurant.getId(), "God, lækker mad til gode priser. Mange muligheder for æg- og nøddeintolerante, men knap så mange til laktoseintolerante.", 5, 5, 2, ReviewStatus.PENDING);
     }
 
 

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class DiningReview {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String submittedBy;
     private Long restaurantReviewedId;
@@ -15,9 +15,8 @@ public class DiningReview {
     private Integer dairyAllergyScore;
     @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus = ReviewStatus.PENDING;
-    private Long userId;
 
-    public DiningReview(String submittedBy, Long restaurantReviewedId, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, ReviewStatus reviewStatus, Long userId) {
+    public DiningReview(String submittedBy, Long restaurantReviewedId, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, ReviewStatus reviewStatus) {
         this.submittedBy = submittedBy;
         this.restaurantReviewedId = restaurantReviewedId;
         this.optionalReviewComment = optionalReviewComment;
@@ -25,21 +24,19 @@ public class DiningReview {
         this.eggAllergyScore = eggAllergyScore;
         this.dairyAllergyScore = dairyAllergyScore;
         this.reviewStatus = reviewStatus;
-        this.userId = userId;
     }
 
     public DiningReview() {
     }
 
-    public DiningReview(EndUser user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, Long userId) {
-        this.submittedBy = user.getUsername();
+    public DiningReview(String submittedBy, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore) {
+        this.submittedBy = submittedBy;
         this.restaurantReviewedId = restaurant.getId();
         this.optionalReviewComment = optionalReviewComment;
         this.peanutAllergyScore = peanutAllergyScore;
         this.eggAllergyScore = eggAllergyScore;
         this.dairyAllergyScore = dairyAllergyScore;
         this.reviewStatus = ReviewStatus.PENDING;
-        this.userId = userId;
     }
 
     public Long getId() {

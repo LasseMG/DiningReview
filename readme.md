@@ -38,17 +38,21 @@ Entities og hvad metoderne bør returnere
 DTO (Data Transfer Object)
 * I stedet for at returnere "hele" objekter, fx User med al data, kan der vælges enkelte data, som vi ønsker at vise brugeren. 
 
+Data
+* Kald filen med testdata import.sql og placer under resources, så ved spring boot at den skal indlæses ved opstart 
+
 Fejl undervejs: 
 -
 * Husk at give attributter samme navne på tværs af repo, service og entity, ellers kan den ikke lave beans 
 * @EntityScan og @EnableJpaRepositories i app. klassen løste nogle problemer 
 * Der kan kun være 1 Get/Put... mapping pr. controller. Ellers skal de have et andet endpoint. 
+* Endnu flere reserverede ord af H2, fx Name, for at fikse det, name kolonnen i sql insert query hedde "name" med gåsetegn 
 
 Todos
 -
 * cURL til test af API endpoints, eller Postman 
 * Unit test af service klasser 
 * Data validation i objekt/entity klasser 
-* Andre funktionaliteter? 
-=======
-
+* Andre funktionaliteter?
+* Al data som overallscore, numberofreviews etc. skal kunne beregnes frem for at blive indtastet manuelt 
+* tests (det sejler)
