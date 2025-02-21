@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan(basePackages = "io.reflectoring.diningreview.model")
 @EnableJpaRepositories("io.reflectoring.diningreview.repository")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "io.reflectoring.diningreview") //bean scanning config
 public class DiningReviewApplication {
 
 	public static void main(String[] args) {

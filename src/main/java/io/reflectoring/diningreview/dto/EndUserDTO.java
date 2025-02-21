@@ -5,14 +5,14 @@ import io.reflectoring.diningreview.model.EndUser;
 /*
 Standard data om en bruger DTO.
  */
-public class UserDTO {
+public class EndUserDTO {
     private Long id;
     private String name;
     private String city;
     private String state;
     private String zipcode;
 
-    public UserDTO(Long id, String name, String city, String state, String zipcode) {
+    public EndUserDTO(Long id, String name, String city, String state, String zipcode) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -20,12 +20,12 @@ public class UserDTO {
         this.zipcode = zipcode;
     }
 
-    public UserDTO(EndUser user) {
-        this.id = user.getId();
-        this.name = user.getName();
-        this.city = user.getCity();
-        this.state = user.getState();
-        this.zipcode = user.getZipcode();
+    public EndUserDTO(EndUser endUser) {
+        this.id = endUser.getId();
+        this.name = endUser.getUsername();
+        this.city = endUser.getCity();
+        this.state = endUser.getState();
+        this.zipcode = endUser.getZipcode();
     }
 
     public Long getId() {

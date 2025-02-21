@@ -1,14 +1,12 @@
 package io.reflectoring.diningreview.controller;
 
 import io.reflectoring.diningreview.model.Restaurant;
-import io.reflectoring.diningreview.repository.RestaurantRepository;
 import io.reflectoring.diningreview.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,7 +16,7 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @Autowired
-    public RestaurantController(RestaurantService restaurantService, RestaurantRepository restaurantRepository) {
+    public RestaurantController(RestaurantService restaurantService) {
         this.restaurantService = restaurantService;
     }
 
@@ -40,7 +38,7 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurants);
     }
 
-    @GetMapping
+    @GetMapping("/zipcode")
     public ResponseEntity<List<Restaurant>> getAllRestaurantsByZipcode(String zipcode) {
         List<Restaurant> restaurants = restaurantService.findRestaurantsByZipcode(zipcode);
         return ResponseEntity.ok(restaurants);

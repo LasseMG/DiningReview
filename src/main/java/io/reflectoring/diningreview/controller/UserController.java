@@ -1,7 +1,6 @@
 package io.reflectoring.diningreview.controller;
 
-import io.reflectoring.diningreview.dto.UserAllergyDTO;
-import io.reflectoring.diningreview.dto.UserDTO;
+import io.reflectoring.diningreview.dto.EndUserAllergyDTO;
 import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.EndUser;
 import io.reflectoring.diningreview.service.UserService;
@@ -30,11 +29,6 @@ public class UserController {
         return userService.updateUser(user);
     }
 
-    @GetMapping
-    public ResponseEntity<UserDTO> getUserDTOByName(@RequestParam String name) {
-        UserDTO userDTO = userService.getUserDTOByName(name);
-        return ResponseEntity.ok(userDTO);
-    }
 
     @GetMapping("/validate")
     public ResponseEntity<String> verifyUserByName(@RequestParam String name) {
@@ -46,9 +40,9 @@ public class UserController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<UserAllergyDTO> getUserAllergy(@RequestParam String name) {
-        UserAllergyDTO userAllergiesDTO = userService.getUserAllergyByName(name);
+    @GetMapping("/dto")
+    public ResponseEntity<EndUserAllergyDTO> getUserAllergy(@RequestParam String name) {
+        EndUserAllergyDTO userAllergiesDTO = userService.getUserAllergyByName(name);
         return ResponseEntity.ok(userAllergiesDTO);
     }
 

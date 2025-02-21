@@ -15,8 +15,9 @@ public class DiningReview {
     private Integer dairyAllergyScore;
     @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus = ReviewStatus.PENDING;
+    private Long userId;
 
-    public DiningReview(String submittedBy, Long restaurantReviewedId, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, ReviewStatus reviewStatus) {
+    public DiningReview(String submittedBy, Long restaurantReviewedId, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, ReviewStatus reviewStatus, Long userId) {
         this.submittedBy = submittedBy;
         this.restaurantReviewedId = restaurantReviewedId;
         this.optionalReviewComment = optionalReviewComment;
@@ -24,18 +25,21 @@ public class DiningReview {
         this.eggAllergyScore = eggAllergyScore;
         this.dairyAllergyScore = dairyAllergyScore;
         this.reviewStatus = reviewStatus;
+        this.userId = userId;
     }
 
     public DiningReview() {
     }
-    public DiningReview(EndUser user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore) {
-        this.submittedBy = user.getName();
+
+    public DiningReview(EndUser user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore, Long userId) {
+        this.submittedBy = user.getUsername();
         this.restaurantReviewedId = restaurant.getId();
         this.optionalReviewComment = optionalReviewComment;
         this.peanutAllergyScore = peanutAllergyScore;
         this.eggAllergyScore = eggAllergyScore;
         this.dairyAllergyScore = dairyAllergyScore;
         this.reviewStatus = ReviewStatus.PENDING;
+        this.userId = userId;
     }
 
     public Long getId() {

@@ -1,7 +1,7 @@
 package io.reflectoring.diningreview.service;
 
-import io.reflectoring.diningreview.dto.UserAllergyDTO;
-import io.reflectoring.diningreview.dto.UserDTO;
+import io.reflectoring.diningreview.dto.EndUserAllergyDTO;
+import io.reflectoring.diningreview.dto.EndUserDTO;
 import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.EndUser;
 import io.reflectoring.diningreview.repository.UserRepository;
@@ -28,19 +28,19 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public UserDTO getUserDTOByName(String name) {
+    public EndUserDTO getUserDTOByName(String name) {
         Optional<EndUser> user = userRepository.findByUsername(name);
-        return user.map(UserDTO::new).orElseThrow(() -> new EntityNotFoundException(name));
+        return user.map(EndUserDTO::new).orElseThrow(() -> new EntityNotFoundException(name));
     }
 
     public boolean verifyUserByName(String name) {
         return userRepository.findByUsername(name).isPresent();
     }
 
-    public UserAllergyDTO getUserAllergyByName(String name) {
+    public EndUserAllergyDTO getUserAllergyByName(String name) {
         Optional<EndUser> user = userRepository.findByUsername(name);
         if (user.isPresent()) {
-            return new UserAllergyDTO(user.get());
+            return new EndUserAllergyDTO(user.get());
         } else {
             throw new EntityNotFoundException(name);
         }

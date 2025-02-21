@@ -28,7 +28,7 @@ Service
 * Returner Optionals 
 
 Repository 
-* Returner Optionals 
+* Returner Optionals
 
 Entities og hvad metoderne bør returnere 
 * Repository: findById: returner optional 
@@ -37,7 +37,12 @@ Entities og hvad metoderne bør returnere
 
 DTO (Data Transfer Object)
 * I stedet for at returnere "hele" objekter, fx User med al data, kan der vælges enkelte data, som vi ønsker at vise brugeren. 
-<<<<<<< HEAD
+
+Fejl undervejs: 
+-
+* Husk at give attributter samme navne på tværs af repo, service og entity, ellers kan den ikke lave beans 
+* @EntityScan og @EnableJpaRepositories i app. klassen løste nogle problemer 
+* Der kan kun være 1 Get/Put... mapping pr. controller. Ellers skal de have et andet endpoint. 
 
 Todos
 -

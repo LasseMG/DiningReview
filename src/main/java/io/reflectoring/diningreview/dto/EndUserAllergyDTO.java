@@ -5,14 +5,14 @@ import io.reflectoring.diningreview.model.EndUser;
 /*
 DTO til når data om brugerens allergier er nødvendig.
  */
-public class UserAllergyDTO {
+public class EndUserAllergyDTO {
     private Long id;
     private String name;
     private boolean peanutAllergic;
     private boolean eggAllergic;
     private boolean dairyAllergic;
 
-    public UserAllergyDTO(Long id, String name, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
+    public EndUserAllergyDTO(Long id, String name, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
         this.id = id;
         this.name = name;
         this.peanutAllergic = peanutAllergic;
@@ -20,12 +20,12 @@ public class UserAllergyDTO {
         this.dairyAllergic = dairyAllergic;
     }
 
-    public UserAllergyDTO(EndUser user) {
-        this.id = user.getId();
-        this.name = user.getName();
-        this.peanutAllergic = user.isPeanutAllergic();
-        this.eggAllergic = user.isEggAllergic();
-        this.dairyAllergic = user.isDairyAllergic();
+    public EndUserAllergyDTO(EndUser endUser) {
+        this.id = endUser.getId();
+        this.name = endUser.getUsername();
+        this.peanutAllergic = endUser.isPeanutAllergic();
+        this.eggAllergic = endUser.isEggAllergic();
+        this.dairyAllergic = endUser.isDairyAllergic();
     }
 
     public Long getId() {

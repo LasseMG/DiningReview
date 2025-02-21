@@ -9,7 +9,7 @@ public class EndUser {
     @Id
     @GeneratedValue
     private Long id; //Skal være en long!
-    private String name;
+    private String username;
     private String city;
     private String state;
     private String zipcode;
@@ -17,8 +17,8 @@ public class EndUser {
     private boolean eggAllergic;
     private boolean dairyAllergic;
 
-    public EndUser(String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
-        this.name = name;
+    public EndUser(String username, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
+        this.username = username;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
@@ -35,17 +35,17 @@ public class EndUser {
 
     /**
      * Copy-constructor, når der skal foretages kopier af en eksisterende uden at røre den originale.
-     * @param user objekt som skal kopieres.
+     * @param endUser objekt som skal kopieres.
      */
-    public EndUser(EndUser user) {
-        this.id = user.getId();
-        this.name = user.getName();
-        this.city = user.getCity();
-        this.state = user.getState();
-        this.zipcode = user.getZipcode();
-        this.peanutAllergic = user.isPeanutAllergic();
-        this.eggAllergic = user.isEggAllergic();
-        this.dairyAllergic = user.isDairyAllergic();
+    public EndUser(EndUser endUser) {
+        this.id = endUser.getId();
+        this.username = endUser.getUsername();
+        this.city = endUser.getCity();
+        this.state = endUser.getState();
+        this.zipcode = endUser.getZipcode();
+        this.peanutAllergic = endUser.isPeanutAllergic();
+        this.eggAllergic = endUser.isEggAllergic();
+        this.dairyAllergic = endUser.isDairyAllergic();
 
     }
 
@@ -57,12 +57,12 @@ public class EndUser {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getCity() {
