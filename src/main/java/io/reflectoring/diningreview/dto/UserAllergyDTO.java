@@ -1,6 +1,6 @@
 package io.reflectoring.diningreview.dto;
 
-import io.reflectoring.diningreview.model.User;
+import io.reflectoring.diningreview.model.EndUser;
 
 /*
 DTO til når data om brugerens allergier er nødvendig.
@@ -20,7 +20,7 @@ public class UserAllergyDTO {
         this.dairyAllergic = dairyAllergic;
     }
 
-    public UserAllergyDTO(User user) {
+    public UserAllergyDTO(EndUser user) {
         this.id = user.getId();
         this.name = user.getName();
         this.peanutAllergic = user.isPeanutAllergic();

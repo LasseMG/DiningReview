@@ -28,7 +28,7 @@ public class DiningReview {
 
     public DiningReview() {
     }
-    public DiningReview(User user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore) {
+    public DiningReview(EndUser user, Restaurant restaurant, String optionalReviewComment, Integer peanutAllergyScore, Integer eggAllergyScore, Integer dairyAllergyScore) {
         this.submittedBy = user.getName();
         this.restaurantReviewedId = restaurant.getId();
         this.optionalReviewComment = optionalReviewComment;

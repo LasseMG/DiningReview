@@ -1,6 +1,6 @@
 package io.reflectoring.diningreview.dto;
 
-import io.reflectoring.diningreview.model.User;
+import io.reflectoring.diningreview.model.EndUser;
 
 /*
 Standard data om en bruger DTO.
@@ -20,7 +20,7 @@ public class UserDTO {
         this.zipcode = zipcode;
     }
 
-    public UserDTO(User user) {
+    public UserDTO(EndUser user) {
         this.id = user.getId();
         this.name = user.getName();
         this.city = user.getCity();

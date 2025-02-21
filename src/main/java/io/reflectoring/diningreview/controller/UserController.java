@@ -3,10 +3,9 @@ package io.reflectoring.diningreview.controller;
 import io.reflectoring.diningreview.dto.UserAllergyDTO;
 import io.reflectoring.diningreview.dto.UserDTO;
 import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
-import io.reflectoring.diningreview.model.User;
+import io.reflectoring.diningreview.model.EndUser;
 import io.reflectoring.diningreview.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +21,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public EndUser createUser(@RequestBody EndUser user) {
         return userService.createUser(user);
     }
 
     @PutMapping
-    public User updateUser(@RequestBody User user) {
+    public EndUser updateUser(@RequestBody EndUser user) {
         return userService.updateUser(user);
     }
 
@@ -54,8 +53,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
+    public ResponseEntity<EndUser> findUserById(@PathVariable Long id) {
+        EndUser user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 

@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class EndUser {
     @Id
     @GeneratedValue
     private Long id; //Skal være en long!
@@ -17,7 +17,7 @@ public class User {
     private boolean eggAllergic;
     private boolean dairyAllergic;
 
-    public User(String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
+    public EndUser(String name, String city, String state, String zipcode, boolean peanutAllergic, boolean eggAllergic, boolean dairyAllergic) {
         this.name = name;
         this.city = city;
         this.state = state;
@@ -30,14 +30,14 @@ public class User {
     /**
      * No-argument constructor: ofte nødvendig for JPA for at skabe objekter gennem reflection
      */
-    public User() {
+    public EndUser() {
     }
 
     /**
      * Copy-constructor, når der skal foretages kopier af en eksisterende uden at røre den originale.
      * @param user objekt som skal kopieres.
      */
-    public User(User user) {
+    public EndUser(EndUser user) {
         this.id = user.getId();
         this.name = user.getName();
         this.city = user.getCity();
