@@ -3,36 +3,41 @@ package io.reflectoring.diningreview.controller;
 import io.reflectoring.diningreview.dto.EndUserAllergyDTO;
 import io.reflectoring.diningreview.exceptions.EntityNotFoundException;
 import io.reflectoring.diningreview.model.EndUser;
-import io.reflectoring.diningreview.service.UserService;
+import io.reflectoring.diningreview.service.EndUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class EndUserController {
 
-    private final UserService userService;
+    private final EndUserService endUserService;
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public EndUserController(EndUserService endUserService) {
+        this.endUserService = endUserService;
     }
 
     @PostMapping
-    public EndUser createUser(@RequestBody EndUser user) {
-        return userService.createUser(user);
+    public EndUser createUser(@RequestBody EndUser endUser) {
+        return endUserService.createUser(endUser);
     }
 
     @PutMapping
-    public EndUser updateUser(@RequestBody EndUser user) {
-        return userService.updateUser(user);
+    public EndUser updateUser(@RequestBody EndUser endUser) {
+        EndUser endUserToUpdate = endUserService.updateUser(endUser);
+        if (endUserToUpdate == null) {
+            throw new EntityNotFoundException("End user not found");
+        } else {
+            return endUserToUpdate;
+        }
     }
 
 
     @GetMapping("/validate")
     public ResponseEntity<String> verifyUserByName(@RequestParam String name) {
-        boolean exists = userService.verifyUserByName(name);
+        boolean exists = endUserService.verifyUserByName(name);
         if (exists) {
             return ResponseEntity.ok("User exists");
         } else {
@@ -42,19 +47,19 @@ public class UserController {
 
     @GetMapping("/dto")
     public ResponseEntity<EndUserAllergyDTO> getUserAllergy(@RequestParam String name) {
-        EndUserAllergyDTO userAllergiesDTO = userService.getUserAllergyByName(name);
+        EndUserAllergyDTO userAllergiesDTO = endUserService.getUserAllergyByName(name);
         return ResponseEntity.ok(userAllergiesDTO);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<EndUser> findUserById(@PathVariable Long id) {
-        EndUser user = userService.getUserById(id);
+        EndUser user = endUserService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserById(@RequestParam Long id) {
-        userService.deleteUserById(id);
+        endUserService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
 }

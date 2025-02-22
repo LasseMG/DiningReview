@@ -40,6 +40,7 @@ DTO (Data Transfer Object)
 
 Data
 * Kald filen med testdata import.sql og placer under resources, så ved spring boot at den skal indlæses ved opstart 
+* Ovenstående virkede ikke, men det virker gennem Postman 
 
 Fejl undervejs: 
 -
@@ -50,7 +51,7 @@ Fejl undervejs:
 
 Todos
 -
-* cURL til test af API endpoints, eller Postman 
+* Postman tests 
 * Unit test af service klasser 
 * Data validation i objekt/entity klasser 
 * Andre funktionaliteter?
