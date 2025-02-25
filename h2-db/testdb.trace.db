@@ -1419,3 +1419,21 @@ INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, S
 2025-02-22 18:59:10.325258+01:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "([*]true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
 (true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100') [42001-232]
+2025-02-22 22:15:57.948820+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES [42001-232]
+2025-02-22 22:15:57.954821+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "([*]true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100') [42001-232]
+2025-02-25 19:03:45.673379+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES [42001-232]
+2025-02-25 19:03:45.683381+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "([*]true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100') [42001-232]
+2025-02-25 20:45:53.463183+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO END_USER (DAIRY_ALLERGIC, EGG_ALLERGIC, PEANUT_ALLERGIC, ID, CITY, STATE, USERNAME, ZIPCODE) VALUES [42001-232]
+2025-02-25 20:45:53.469183+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "([*]true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(true, false, false, 1, 'VEJLE', 'SYDJYLLAND', 'lassemg', '7100') [42001-232]

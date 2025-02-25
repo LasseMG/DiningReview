@@ -39,8 +39,23 @@ public class RestaurantService {
         return restaurantRepository.findAllByOrderByName();
     }
 
-    public void updateRestaurant(Restaurant restaurant) {
-        restaurantRepository.save(restaurant);
+    public Restaurant updateRestaurant(Restaurant restaurant) {
+        Optional<Restaurant> restaurantOptional = restaurantRepository.findById(restaurant.getId());
+        if (restaurantOptional.isPresent()) {
+            Restaurant restaurantToUpdate = restaurantOptional.get();
+            restaurantToUpdate.setName(restaurant.getName());
+            restaurantToUpdate.setAddress(restaurant.getAddress());
+            restaurantToUpdate.setZipcode(restaurant.getZipcode());
+            restaurantToUpdate.setState(restaurant.getState());
+            restaurantToUpdate.setPhoneNumber(restaurant.getPhoneNumber());
+            restaurantToUpdate.setCountry(restaurant.getCountry());
+            restaurantToUpdate.setPriceRange(restaurant.getPriceRange());
+            restaurantToUpdate.setCapacity(restaurant.getCapacity());
+            restaurantToUpdate.setCuisineType(restaurant.getCuisineType());
+            restaurantToUpdate.setNumberOfReviews(restaurant.getNumberOfReviews());
+            return restaurantRepository.save(restaurantToUpdate);
+        }
+        return null;
     }
 
     public void deleteRestaurantById(Long id) {
